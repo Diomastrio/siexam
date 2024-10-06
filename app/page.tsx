@@ -1,101 +1,78 @@
-import Image from "next/image";
+import Image from 'next/image'
+import Link from 'next/link'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen bg-white">
+      <header className="flex justify-between items-center p-4 border-b">
+        <div className="flex items-center space-x-4">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </svg>
+          <span className="font-semibold text-sm">ALUMNO-PEREZ SOSA JUAN CARLOS</span>
+        </div>
+        <nav>
+          <ul className="flex space-x-4">
+            <li><Link href="#" className="text-sm">SECCIÓN 1</Link></li>
+            <li><Link href="#" className="text-sm">SECCIÓN 2</Link></li>
+            <li><Link href="#" className="text-sm">SECCIÓN 3</Link></li>
+            <li><Button size="sm">INICIO</Button></li>
+          </ul>
+        </nav>
+        <Avatar>
+          <AvatarImage src="/placeholder-avatar.jpg" alt="User" />
+          <AvatarFallback>US</AvatarFallback>
+        </Avatar>
+      </header>
+      <main className="container mx-auto p-4 space-y-6">
+        <Card className="overflow-hidden">
+          <div className="grid md:grid-cols-2">
+            <div className="relative h-64 md:h-auto">
+              <Image
+                src="/placeholder.svg?height=400&width=400"
+                alt="Colorful swirl"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-bold mb-4">SEGURIDAD DE LA INFORMACIÓN</h2>
+              <p className="text-sm">
+                Qué es la seguridad de la información? La seguridad de la información es un conjunto de medidas y prácticas que buscan proteger la confidencialidad, integridad y disponibilidad de los datos. Es fundamental para garantizar que la información sensible, personal, empresarial o de cualquier otro tipo no sea accedida, modificada o perdida de forma no autorizada. Esto incluye protección contra amenazas cibernéticas, robo de datos, pérdida de información por acciones maliciosas o errores humanos, entre otros. La seguridad de la información abarca aspectos técnicos, humanos y organizativos, todos con el objetivo de salvaguardar uno de los activos más valiosos en la era digital: la información.
+              </p>
+              <Button className="mt-4">INICIO</Button>
+            </CardContent>
+          </div>
+        </Card>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[1, 2, 3].map((i) => (
+            <Card key={i} className="overflow-hidden">
+              <div className="relative h-48">
+                <Image
+                  src={`/placeholder.svg?height=200&width=300&text=SECCIÓN ${i}`}
+                  alt={`Section ${i}`}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            </Card>
+          ))}
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }
