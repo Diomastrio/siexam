@@ -3,9 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/ui/Header";
 import Link from "next/link";
+
+const descriptions = [
+  "Ataques cibernéticos (Sección 1): Incluye ataques y técnicas como DDoS, botnets, y ransomware, destacando casos famosos como Wannacry, Stuxnet y Equifax.",
+
+  "Confidencialidad de la información (Sección 2): Se abordan leyes de protección de datos en México, criptografía simétrica y asimétrica, y conceptos clave como cifrado y criptoanálisis.",
+
+  "Principios de seguridad de la información (Sección 3): Principios esenciales como accesibilidad, confidencialidad, autenticación e integridad para garantizar la seguridad digital.",
+];
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen ">
       <Header />
       <main className="container mx-auto p-4 space-y-6">
         <Card className="overflow-hidden">
@@ -41,23 +50,22 @@ export default function Home() {
               <Button className="mt-4">INICIO</Button>
             </CardContent>
           </div>
-        </Card>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {["one", "two", "three"].map((name, i) => (
+        </Card>{" "}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+          {["attack", "confidential", "principals"].map((name, i) => (
             <Link key={i} href={`/seccion${i + 1}`}>
-              <h3 className="text-lg font-semibold mb-2">{`Sección ${
-                i + 1
-              }`}</h3>
-              <Card className="overflow-hidden cursor-pointer">
-                <div className="p-4">
-                  <div className="relative h-48">
-                    <Image
-                      src={`/assets/${name}.jpg`}
-                      alt={`Section ${i + 1}`}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </div>
+              <Card className="overflow-hidden cursor-pointer ">
+                <h3 className="text-lg font-semibold mb-2">{`Sección ${
+                  i + 1
+                }`}</h3>
+                <p className="mb-4">{descriptions[i]}</p>
+                <div className="relative h-48">
+                  <Image
+                    src={`/assets/${name}.jpg`}
+                    alt={`Section ${i + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                  />
                 </div>
               </Card>
             </Link>

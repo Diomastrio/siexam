@@ -1,25 +1,21 @@
-// components/ui/Header.tsx
+"use client";
+
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { FaSun, FaMoon } from "react-icons/fa";
+import { useTheme } from "@/app/hooks/useTheme";
 
 const Header = () => {
+  const { theme, toggleTheme, mounted } = useTheme();
+
+  if (!mounted) return null;
+
   return (
     <header className="flex justify-between items-center p-4 border-b">
       <div className="flex items-center space-x-4">
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
+        <button onClick={toggleTheme} className="text-xl">
+          {theme === "light" ? <FaMoon /> : <FaSun />}
+        </button>
         <span className="font-semibold text-sm">
           ALUMNO- CONTRERAS ESPARZA MIGUEL ANDY
         </span>
@@ -41,8 +37,11 @@ const Header = () => {
               SECCIÓN 3
             </Link>
           </li>
-          <li>
-            <Link href="/" className="text-sm">
+          <li className="px-3 mx-2">
+            <Link
+              href="/"
+              className="text-sm bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-700 transition-colors"
+            >
               INICIO
             </Link>
           </li>

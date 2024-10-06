@@ -2,10 +2,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/ui/Header";
 export default function Seccion1() {
   return (
-    <div className="container mx-auto min-h-screen">
+    <div className="container mx-auto min-h-screen ">
       <Header />
-      <h1 className="text-3xl font-bold mb-6">
-        Principios de seguridad de la información (Sección 3)
+      <h1 className="text-3xl font-bold mb-6 my-2 mx-3">
+        Principios de seguridad de la información
       </h1>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

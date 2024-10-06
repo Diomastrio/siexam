@@ -100,8 +100,8 @@ export default function Seccion1() {
   return (
     <div className="container mx-auto min-h-screen">
       <Header />
-      <h1 className="text-4xl font-bold mb-6">
-        Ataques cibernéticos (Sección 1)
+      <h1 className="text-4xl font-bold mb-6 my-2 mx-3">
+        Ataques cibernéticos
       </h1>
       <ScrollArea className="h-[calc(100vh-200px)]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
